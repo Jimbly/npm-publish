@@ -17,7 +17,7 @@ repositories, feel free to reach out to me at `jimb.ly` on Discord.
 Notes to self for use:
 * Always first check with `npm publish --dry-run`
 * To set up a new project (requires getting a OTP 4 times -\_-, fewer if you're quick):
-  * Set the `homepage` to the GitHub repository and `repository` in the project's package.json like so:
+* * Set the `homepage` to the GitHub repository and `repository` in the project's package.json like so:
 ```json
   "homepage": "https://github.com/Jimbly/some-project-name",
   "repository": {
@@ -25,10 +25,10 @@ Notes to self for use:
     "url": "git+https://github.com/Jimbly/npm-publish.git"
   },
 ```
-  * Publish once manually `npm login` and `npm publish --access=public`
-  * Visit `https://www.npmjs.com/package/some-project-name/access`
+* * Publish once manually `npm login` and `npm publish --access=public`
+* * Visit `https://www.npmjs.com/package/some-project-name/access`
     * Select `GitHub Actions`
     * Put in `Jimbly` / `npm-publish` / `publish.yml`
     * Click `Set up connection`
-  * Bump version number and then test publishing
+* * Bump version number and then test publishing
 * Run `npm-publish` in the project's directory
