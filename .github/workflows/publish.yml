@@ -1,6 +1,12 @@
 name: Test and Publish
 on:
   workflow_dispatch:
+    inputs:
+      repository:
+        description: 'Repository to publish'
+        required: true
+        default: 'Jimbly/foo'
+        type: string
 
 permissions:
   contents: read
@@ -14,6 +20,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.inputs.repository }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -25,11 +33,11 @@ jobs:
       - name: Install dependencies
         run: npm ci --no-audit --no-fund --no-update-notifier
 
-      # - name: Install dependencies for test
-      #   run: cd test && npm ci --no-audit --no-fund --no-update-notifier
+      - name: Install dependencies for test (if different)
+        run: cd test && npm ci --no-audit --no-fund --no-update-notifier
 
-      # - name: Run tests
-      #   run: npm test
+      - name: Run tests
+        run: npm test
 
       - name: Ensure latest npm # Fixes OIDC handshake issues
         run: npm install -g npm@latest
