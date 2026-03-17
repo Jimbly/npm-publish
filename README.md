@@ -19,7 +19,7 @@ Notes to self for use:
 * To set up a new project (requires getting a OTP 4 times -\_-, fewer if you're quick):
 * * Set the `homepage` to the GitHub repository and `repository` in the project's package.json like so:
 ```json
-  "homepage": "https://github.com/Jimbly/some-project-name",
+  "homepage": "https://github.com/Jimbly/some-project-name#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jimbly/npm-publish.git"

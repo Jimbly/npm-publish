@@ -2,7 +2,7 @@
 
 @REM Determine repository from `homepage` link in package.json
 
-@FOR /F "tokens=*" %%I IN ('node -e "console.log(JSON.parse(require('fs').readFileSync('package.json')).homepage.match(/Jimbly\/(.*)/)[1])"') DO @SET "PKG=%%I"
+@FOR /F "tokens=*" %%I IN ('node -e "console.log(JSON.parse(require('fs').readFileSync('package.json')).homepage.match(/Jimbly\/([^#]*)/)[1])"') DO @SET "PKG=%%I"
 @if ERRORLEVEL 1 (
   @echo Error parsing "homepage" from package.json in the current directory
   @exit /b 1
