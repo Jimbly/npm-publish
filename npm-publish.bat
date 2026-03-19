@@ -7,6 +7,10 @@
   @echo Error parsing "homepage" from package.json in the current directory
   @exit /b 1
 )
+@if "%PKG%"=="" (
+  @echo Error parsing "homepage" from package.json in the current directory
+  @exit /b 1
+)
 @echo Publishing from repository "Jimbly/%PKG%"
 
 @curl -H "Accept: application/vnd.github+json" -H "Authorization: Bearer %GHTOKEN%" -H "X-GitHub-Api-Version: 2026-03-10" https://api.github.com/repos/Jimbly/npm-publish/actions/workflows/publish.yml/dispatches -d {\"ref\":\"master\",\"inputs\":{\"repository\":\"Jimbly/%PKG%\"}}
