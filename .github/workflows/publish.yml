@@ -34,6 +34,7 @@ jobs:
         run: npm ci --no-audit --no-fund --no-update-notifier
 
       - name: Install dependencies for test (if different)
+        if: ${{ hashFiles('test/**') != '' }}
         run: cd test && npm ci --no-audit --no-fund --no-update-notifier
 
       - name: Run tests
