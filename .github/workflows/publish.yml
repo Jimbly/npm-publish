@@ -41,7 +41,8 @@ jobs:
         run: npm test
 
       - name: Ensure latest npm # Fixes OIDC handshake issues
-        run: npm install -g npm@latest
+        # Note: @latest no longer works on Node 22, using latest in v11 line seems to
+        run: npm install -g npm@11
 
       - name: Publish to npm
         # --provenance links the package to this specific GitHub run
